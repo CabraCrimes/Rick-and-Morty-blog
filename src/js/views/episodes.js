@@ -8,7 +8,7 @@ export const Episodes = () => {
     const {store, actions} = useContext(Context);
 
     return(
-        <div className="container row text-center mt-5">
+        <div className="container row mx-auto text-center mt-5">
 			<h1>Episodes</h1>
 
             <Link to="/">

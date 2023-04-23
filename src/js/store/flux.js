@@ -6,6 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			location: [],
 
 			episode: [],
+
+			favourite: []
 		},
 		
 		actions: {
@@ -24,7 +26,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch("https://rickandmortyapi.com/api/episode")
 					const data = await response.json();
 					setStore({episode: data.results})
-			}
+			},
+
+			
 		}
 
 	};
