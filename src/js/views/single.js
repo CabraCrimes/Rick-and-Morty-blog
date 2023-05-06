@@ -7,16 +7,8 @@ export const Single = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
-	// const item = store.character.map(newArray => {
-	// 	return Object.entries(newArray)
-	//  });
-
 	const item = store.character.find((e) => e.id == params.theid)
-	console.log(item)
-	//  item.filter( (e) => e.id != params.theid)
-
 	
-
 	return (
 		<div className="jumbotron">
 
