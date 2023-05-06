@@ -26,7 +26,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch("https://rickandmortyapi.com/api/episode")
 					const data = await response.json();
 					setStore({episode: data.results})
-			},
+			},	
+
+			setFavorites: (newFav) => {
+				const favourites = getStore().favourite;
+				if (!favourites.includes(newFav)){
+					setStore({favourite : [...getStore().favourite, newFav]})}
+					else{
+						setStore({favourite : favourites.filter((oldFav)=> oldFav != newFav)})
+					}
+			}
 
 			
 		}

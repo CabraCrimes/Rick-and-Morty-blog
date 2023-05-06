@@ -8,16 +8,18 @@ import { CardEpisode } from "../component/card";
 
 export const Home = () => {
 	const {store, actions} = useContext(Context);
-	console.log("==>" + store.character)
+	const allCarousels = ["character", "episodes", "location" ]
+	
 	return(
 		<div className="container d-flex mx-auto row text-center mt-5">
 			
 			<h1>Home Page</h1>
 
 			<Link to="/characters">
-                <h2 className="">Characters</h2>
+                <h2>Characters</h2>
             </Link>
-			<div className="row row-cols-sx-1 row-cols-sm-3 row-cols-md-5 mt-5 "> 
+			{/* <div className="row row-cols-sx-1 row-cols-sm-3 row-cols-md-5 mt-5 "> */}
+			<div className="d-flex overflow-auto"> 
 			{store.character.map((newChar)=>{
 				return <Card key={newChar.id} character={newChar}/>
 			}) }

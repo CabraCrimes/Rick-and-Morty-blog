@@ -1,26 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Card } from "./card";
 import { Characters } from "../views/characters";
-import  getState from "../store/flux"; 
+import  {Context} from "../store/appContext"; 
 
-export const Favourite = () =>{
-    const [isFav, setFav] = useState (false)
-    const [isFavArray, setFavArray] = useState ([])
+export const Favourite = ({Characters}) =>{
+const {store, actions} = useContext(Context);
     
-    console.log("Console log => " + isFavArray)
-
-    const addToFavourites = (item) => {
-        setFavArray([...isFavArray, item])
-    }
-
     return (
         <div >
-           
-             <button className={`btn btn-primary ${isFav == true ? addToFavourites() : null}`}
-              onClick={()=> {setFav(true)}}>
-                <i className="fa-regular fa-heart"></i>
-                </button>
-            
+           <button className="btn btn-primary">
+                <i className="fa-regular fa-heart" onClick={()=>{
+                    actions.setFavorites(Characters.name)
+                }}></i>
+            </button>
         </div>
     )
 }

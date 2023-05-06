@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { Context } from "../store/appContext";
+import Dropdown from 'react-bootstrap/Dropdown';
 
 
 export const Navbar = () => {
-
+	const { store, actions } = useContext(Context);
 
 	return (
 		<nav className="navbar navbar-light bg-light mb-3 px-3">
@@ -13,7 +14,7 @@ export const Navbar = () => {
 			</Link>
 
 			<div className="d-flex mx-auto">
-				
+
 				<Link to="/characters">
 					<button className="btn btn-primary">Characters</button>
 				</Link>
@@ -28,17 +29,31 @@ export const Navbar = () => {
 					</Link>
 				</div>
 			</div>
-				<div className="d-flex justify-content-end">
-					
-					<div className="btn-group">
-					<button type="button" className="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-						Favourites
-					</button>
-					<ul className="dropdown-menu dropdown-menu-end">
-						<li><button className="dropdown-item" type="button">Action</button></li>
-						</ul>
-					</div>
+
+			<div className="d-flex justify-content-end">
+
+				<div className="btn-group">
+
+
+					<Dropdown className="d-inline mx-2" autoClose="outside">
+						<Dropdown.Toggle id="dropdown-autoclose-outside">
+							Favourite {store.favourite.length}
+						</Dropdown.Toggle>
+
+						<Dropdown.Menu>
+							{store.favourite != 0 ?
+								<>{store.favourite.map((fav) => {
+									return <li key={fav} className="d-flex"><p className="dropdown-item my-2">{fav}</p><button onClick={(() => {
+										actions.setFavorites(fav);
+									})}
+										className="btn btn-danger btn-sm my-2 me-2">x</button></li>
+								})}</> : <li><p className="dropdown-item" type="button d-flex align-items-center">Add a favourite</p></li>}
+						</Dropdown.Menu>
+					</Dropdown>
+
+
 				</div>
+			</div>
 		</nav>
 	);
 };
