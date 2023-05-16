@@ -8,8 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			episode: [],
 
 			nextCharacterURL: "https://rickandmortyapi.com/api/character/?page=1",
-			nextLocationURL: "",
-			nextEpisodeURL: "",
+			nextLocationURL: "https://rickandmortyapi.com/api/location/?page=1",
+			nextEpisodeURL: "https://rickandmortyapi.com/api/episode/?page=1",
 
 			favourite: []
 		},
@@ -21,13 +21,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({character: [...getStore().character, ...data.results], nextCharacterURL: data.info.next })
 			 },
 			 getLocation: async () => {
-					const response = await fetch("https://rickandmortyapi.com/api/location")
+					const response = await fetch(getStore().nextLocationURL)
 					const data = await response.json();
 					setStore({location: data.results})
 			},
 
 			getEpisode: async () => {
-					const response = await fetch("https://rickandmortyapi.com/api/episode")
+					const response = await fetch(getStore().nextEpisodeURL)
 					const data = await response.json();
 					setStore({episode: data.results})
 			},	

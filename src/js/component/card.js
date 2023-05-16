@@ -31,8 +31,8 @@ export const Card = ({ character }) => {
 
 export const CardLocation = ({ location }) => {
   return (
-    <div className="card" style={{ width: "18rem" }}>
-      <div className="card-body">
+    <div className="card mx-1 col" style={{ minWidth: "16rem" }}>
+      <div className="card-body" style={{ width: "16rem" }}>
         <h5 className="card-title">{location.name}</h5>
         <p className="card-text">{location.id}</p>
         <p className="card-text">{location.type}</p>
@@ -53,7 +53,7 @@ export const CardLocation = ({ location }) => {
 export const CardEpisode = ({ episode }) => {
 
   return (
-    <div className="card" style={{ width: "18rem" }}>
+    <div className="card mx-1 col" style={{ minWidth: "16rem" }}>
       <div className="card-body">
         <h5 className="card-title">{episode.name}</h5>
         <p className="card-text">{episode.episode}</p>
