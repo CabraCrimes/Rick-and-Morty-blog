@@ -37,7 +37,7 @@ export const Navbar = () => {
 
 					<Dropdown className="d-inline mx-2" autoClose="outside">
 						<Dropdown.Toggle id="dropdown-autoclose-outside">
-							Favourite {store.favourite.length}
+							Favourites {store.favourite.length}
 						</Dropdown.Toggle>
 
 						<Dropdown.Menu>

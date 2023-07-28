@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
-import {CardLocation} from "../component/card";
+import { LocationCard } from "../component/cards/location-card"; 
 
 export const Locations = () => {
 	const {store, actions} = useContext(Context);
@@ -16,7 +16,7 @@ export const Locations = () => {
             
             {console.log(store.location)}
 			{store.location.map((loc)=> {
-                return <CardLocation key={loc.id} location={loc}/>
+                return <LocationCard key={loc.id} location={loc}/>
 			})}
 
         </div>

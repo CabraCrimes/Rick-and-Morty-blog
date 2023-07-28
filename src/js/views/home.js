@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
-import { Card } from "../component/card"
-import { CardLocation } from "../component/card"
-import { CardEpisode } from "../component/card";
+import { CharacterCard} from "../component/cards/character-card"
+import { LocationCard } from "../component/cards/location-card";
+import { EpisodeCard } from "../component/cards/episode-card";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -22,34 +22,40 @@ export const Home = () => {
 			{/* <div className="row row-cols-sx-1 row-cols-sm-3 row-cols-md-5 mt-5 "> */}
 			<div className="d-flex overflow-auto mb-5">
 				{store.character.map((newChar) => {
-					return <Card key={newChar.id} character={newChar} />
+					return <CharacterCard key={newChar.id} character={newChar} />
 				})}
-				<button className="btn btn-info" onClick={()=>{
+				<button className="btn btn-info" onClick={() => {
 					actions.getCharacter()
-				}}>Load More</button>
+				}}>Load More
+				</button>
 			</div>
 
-				{/* Location */}
-				<Link to="/location">
+			{/* Location */}
+			<Link to="/location">
 				<h2>Locations</h2>
-				</Link>
+			</Link>
 			<div className="d-flex overflow-auto mb-5">
 				{store.location.map((newLoc) => {
-					return <CardLocation key={newLoc.id} location={newLoc} />
+					return <LocationCard key={newLoc.id} location={newLoc} />
 				})}
-				<button className="btn btn-info" onClick={()=>{
+				<button className="btn btn-info" onClick={() => {
 					actions.getLocation()
-				}}>Load More</button>
+				}}>Load More
+				</button>
 			</div>
 
-				{/* Episodes */}
-				<Link to="/episodes">
-					<h2>Episode</h2>
-				</Link>
+			{/* Episodes */}
+			<Link to="/episodes">
+				<h2>Episode</h2>
+			</Link>
 			<div className="d-flex overflow-auto mb-5">
 				{store.episode.map((newEpi) => {
-					return <CardEpisode key={newEpi.id} episode={newEpi} />
+					return <EpisodeCard key={newEpi.id} episode={newEpi} />
 				})}
+				<button className="btn btn-info" onClick={() => {
+					actions.getEpisode()
+				}}>Load More
+				</button>
 			</div>
 
 		</div>

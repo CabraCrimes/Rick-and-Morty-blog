@@ -23,13 +23,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			 getLocation: async () => {
 					const response = await fetch(getStore().nextLocationURL)
 					const data = await response.json();
-					setStore({location: data.results})
+					setStore({location: [...getStore().location, ...data.results], nextLocationURL: data.info.next })
 			},
 
 			getEpisode: async () => {
 					const response = await fetch(getStore().nextEpisodeURL)
 					const data = await response.json();
-					setStore({episode: data.results})
+					setStore({episode: [...getStore().episode, ...data.results], nextEpisodeURL: data.info.next })
 			},	
 
 			setFavorites: (newFav) => {
@@ -37,7 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				if (!favourites.includes(newFav)){
 					setStore({favourite : [...getStore().favourite, newFav]})}
 					else{
-						setStore({favourite : favourites.filter((oldFav)=> oldFav != newFav)})
+						setStore({favourite : favourites.filter((oldFav) => oldFav != newFav)})
 					}
 			}
 

@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
-import {CardEpisode} from "../component/card";
+import { EpisodeCard } from "../component/cards/episode-card"; 
 
 export const Episodes = () => {
     const {store, actions} = useContext(Context);
@@ -15,9 +15,9 @@ export const Episodes = () => {
                 <button className="btn btn-primary">Home</button>
             </Link>
             
-			{store.episode.map((ep)=> {
-                return <CardEpisode key={ep.id} episode={ep}/>
-			})}
+			{store.episode.length != 0 ? store.episode.map((ep)=> {
+                return <EpisodeCard key={ep.id} episode={ep}/>
+			}) : "No episodes founds"}  
 
         </div>
     )
