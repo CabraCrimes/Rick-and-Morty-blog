@@ -23,4 +23,4 @@ export const Characters = () => {
     }
 
 	// TODO make cards recative and make sure all elements are in line. Sort out styles and buttons. Make sure you understand 
-	// the flux!!!!!! Fix the learn more page.
+	// the flux!!!!!! Fix the learn more page. 

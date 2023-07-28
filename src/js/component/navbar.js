@@ -8,38 +8,35 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<nav className="navbar navbar-light bg-light mb-3 px-3">
+		<nav className="navbar navbar-light bg-primary bg-info pb-3 px-3">
 			<Link to="/">
-				<span className="navbar-brand mb-0 h1">Rick and Morty</span>
+				<span className="navbar-brand btn mb-0 h1 fs-3">Rick and Morty</span>
 			</Link>
 
 			<div className="d-flex mx-auto">
 
 				<Link to="/characters">
-					<button className="btn btn-primary">Characters</button>
+					<div className="btn fs-4">Characters</div>
 				</Link>
 				<div className="">
 					<Link to="/episodes" >
-						<button className="btn btn-primary">Episodes</button>
+						<div className="btn fs-4">Episodes</div>
 					</Link>
 				</div>
 				<div className="">
 					<Link to="/location" >
-						<button className="btn btn-primary">Location</button>
+						<div className="btn fs-4">Location</div>
 					</Link>
 				</div>
 			</div>
 
-			<div className="d-flex justify-content-end">
+			<div className="d-flex justify-content-end ">
 
-				<div className="btn-group">
-
-
-					<Dropdown className="d-inline mx-2" autoClose="outside">
-						<Dropdown.Toggle id="dropdown-autoclose-outside">
+				<div className="btn-group ">
+					<Dropdown className="d-inline mx-2 " autoClose="outside">
+						<Dropdown.Toggle className="bg-info border border-0 text-black fs-6" id="dropdown-autoclose-outside">
 							Favourites {store.favourite.length}
 						</Dropdown.Toggle>
-
 						<Dropdown.Menu>
 							{store.favourite != 0 ?
 								<>{store.favourite.map((fav) => {
@@ -50,8 +47,6 @@ export const Navbar = () => {
 								})}</> : <li><p className="dropdown-item" type="button d-flex align-items-center">Add a favourite</p></li>}
 						</Dropdown.Menu>
 					</Dropdown>
-
-
 				</div>
 			</div>
 		</nav>
