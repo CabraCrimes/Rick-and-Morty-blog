@@ -1,103 +1,66 @@
-# WebApp boilerplate with React JS
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/react-hello-webapp.git)
+# Rick and Morty Blog using React.js and Rick and Morty API
 
-<p align="center">
-<a href="https://www.loom.com/share/f37c6838b3f1496c95111e515e83dd9b"><img src="https://github.com/4GeeksAcademy/react-hello-webapp/blob/master/src/img/how-to.png?raw=true" /></a>
-</p>
+Welcome to the Rick and Morty Blog, a fun and interactive web application that leverages the Rick and Morty API to provide you with information about your favorite characters, episodes, and locations from the show. This project is built using the React.js framework and allows you to explore various aspects of the Rick and Morty universe.
+
+## Table of Contents
+- Introduction
+- Features
+- Pages
+- Getting Started
+- Usage
+- Favourites
+- Contributing
+- License
+  
+## Introduction
+
+This blog is a fan-made project dedicated to providing fans of Rick and Morty with a convenient and enjoyable way to explore information about characters, episodes, and locations from the show. It pulls data from the Rick and Morty API to populate the content and offers a user-friendly interface for seamless navigation.
+
+## Features
+
+- Browse characters, episodes, and locations from the Rick and Morty universe.
+- Home page displays a curated selection of characters, episodes, and locations.
+- Learn more buttons provide detailed information about each topic.
+- Favourites tab lets you save your favorite characters, episodes, and locations.
+- Interactive and responsive design for a pleasant user experience.
+- Built using React.js for efficient and modular development.
+- 
+## Pages
+### Home Page
+The home page welcomes users with a selection of featured characters, episodes, and locations. Each item is accompanied by a brief description and an option to learn more.
+
+### Character Page
+The character page allows users to explore various characters from the show. Clicking on a character's name or image will take you to a detailed page with more information about that character, including their status, species, and origin.
+
+### Episode Page
+The episode page provides a list of episodes, including their names and air dates. Clicking on an episode's title will lead you to a page with additional details about that episode, such as its director, air date, and a list of characters that appeared in it.
+
+### Location Page
+The location page showcases different locations featured in the show. Clicking on a location's name will take you to a dedicated page displaying more information about that location, including its type, dimension, and residents.
+
+### Getting Started
+To run the Rick and Morty Blog on your local machine, follow these steps:
+
+1) Clone this repository: git clone https://github.com/CabraCrimes/Rick-and-Morty-blog.git
+2) Navigate to the project directory: cd rick-and-morty-blog
+3) Install dependencies: npm install
+4) Start the development server: npm start
+   
+### Usage
+
+Once the development server is running, open your browser and navigate to http://localhost:3000 to access the Rick and Morty Blog. Explore characters, episodes, and locations, learn more about each topic, and save your favorites to the Favourites tab.
+
+### Favourites
+
+The Favourites tab allows you to select and save your favorite characters, episodes, and locations for quick access. Simply click the heart icon on an item's page to add it to your favorites.
+
+### Contributing
+
+Contributions to the Rick and Morty Blog project are welcome! If you find a bug or have an idea for an enhancement, feel free to open an issue or submit a pull request. Please follow our Contribution Guidelines for more details.
+
+### License
+
+This project is licensed under the MIT License, which means you are free to use, modify, and distribute the code for personal or commercial purposes.
 
 
-### Requirements:
-- Make sure you are using node version 10
-
-1. Install the packages:
-```
-$ npm install
-```
-2. Create a .env file:
-```
-$ cp .env.example .env
-```
-3. Start coding! and the webpack dev server with live reload, for windows, mac, linux or Gitpod:
-
-```bash
-$ npm run start
-```
-
-### Styles
-You can update the `styles/index.css` or create new `.css` files inside `styles/` and import them into your current scss or js files depending on your needs.
-
-### Components
-Add more files into your `./src/js/components` or styles folder as you need them and import them into your current files as needed.
-
-**Note (New changes)**: Components have been converted into functions to support the use of hooks:
-* Instead of a class component, we're using a `const` function.
-* Class `constructor` and `state` have been replaced by `useState()` hooks.
-* `componentDidMount()` was replaced by `useEffect({}, [])` - It runs at mount thanks to the second parameter (`[]`).
-* `Actions` and `Store` still work the same way.
-
-```jsx
-// Previous "Class Oriented"
-export class Demo extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = getState('code here');
-	}
-}
-
-// New "Functional Oriented"
-export const Demo = () => (
-	const [state, setState] = getState('code here'); //using the state (if needed)
-  const { store, actions } = useContext(Context); // using the context (if needed)
-
-);
-```
-
-💡Note: There is an example using the Context API inside `views/demo.js`;
-
-### Views (Components)
-Add more files into your `./src/js/views` and import them in `./src/js/layout.jsx`.
-
-### Context
-This boilerplate comes with a centralized general Context API. The file `./src/js/store/flux.js` has a base structure for the store, we encourage you to change it and adapt it to your needs.
-
-React Context [docs](https://reactjs.org/docs/context.html)
-BreathCode Lesson [view](https://content.breatheco.de/lesson/react-hooks-explained)
-
-The `Provider` is already set. You can consume from any component using the useContext hook to get the `store` and `actions` from the Context. Check `/views/demo.js` to see a demo.
-
-```jsx
-import { Context } from "../store/appContext";
-const MyComponentSuper = () => {
-  //here you use useContext to get store and actions
-  const { store, actions } = useContext(Context);
-  return <div>{/* you can use your actions or store inside the html */}</div>
-}
-```
-
-## Publish your website!
-
-1. **Vercel:** The FREE recomended hosting provider is [vercel.com](https://vercel.com/), you can deploy in 1 minutes by typing the following 2 commands:
-
-Login (you need to have an account):
-```sh
-$ npm i vercel -g && vercel login
-```
-Deploy:
-```sh
-$ vercel --prod
-```
-✎ Note: If you don't have an account just go to vercel.com, create a account and come back here.
-
-![Vercel example procedure to deploy](https://github.com/4GeeksAcademy/react-hello-webapp/blob/4b530ba091a981d3916cc6e960e370decaf2e234/docs/deploy.png?raw=true)
-
-2. **Github Pages:** This boilerplate is 100% compatible with the free github pages hosting.
-To publish your website you need to push your code to your github repository and run the following command after:
-```sh
-$ npm run deploy
-```
-Note: You will need to [configure github pages for the branch gh-pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#enabling-github-pages-to-publish-your-site-from-master-or-gh-pages)
-
-## Contributors
-
-This template was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
+Thank you for using the Rick and Morty Blog! Explore the fascinating world of Rick and Morty and enjoy your time discovering characters, episodes, and locations. If you have any questions or feedback, please don't hesitate to get in touch. Happy exploring!
